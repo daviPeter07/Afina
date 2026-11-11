@@ -1,0 +1,5 @@
+/target
+
+# Notas pessoais do Claude Code (específicas de cada máquina)
+CLAUDE.local.md
+.claude/settings.local.json

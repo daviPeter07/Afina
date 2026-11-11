@@ -1,0 +1,16 @@
+[package]
+name = "afina-platform"
+description = "Camada fina sobre APIs do Windows (registro, processos, UAC, informações do sistema)"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish = false
+
+[dependencies]
+serde.workspace = true
+windows-sys.workspace = true
+winreg.workspace = true
+
+[lints]
+workspace = true

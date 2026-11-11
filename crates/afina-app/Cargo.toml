@@ -1,0 +1,20 @@
+[package]
+name = "afina-app"
+description = "Interface gráfica do Afina (egui)"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish = false
+
+[[bin]]
+name = "afina"
+path = "src/main.rs"
+
+[dependencies]
+afina-core.workspace = true
+afina-platform.workspace = true
+eframe.workspace = true
+
+[lints]
+workspace = true

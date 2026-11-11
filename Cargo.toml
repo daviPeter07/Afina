@@ -1,0 +1,38 @@
+[workspace]
+resolver = "3"
+members = ["crates/*"]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.88"
+license = "MIT"
+description = "Windows afinado para jogos: leve, transparente e reversível"
+
+# Every third-party version lives here; crates use `{ workspace = true }`.
+[workspace.dependencies]
+afina-platform = { path = "crates/afina-platform" }
+afina-core = { path = "crates/afina-core" }
+eframe = { version = "0.37.0", default-features = false, features = ["glow", "default_fonts"] }
+serde = { version = "1.0.229", features = ["derive"] }
+serde_json = "1.0.154"
+windows-sys = { version = "0.61.2", features = [
+    "Win32_Foundation",
+    "Win32_UI_Shell",
+    "Win32_UI_WindowsAndMessaging",
+    "Win32_System_SystemInformation",
+] }
+winreg = "0.56.0"
+
+[workspace.lints.rust]
+missing_debug_implementations = "warn"
+
+[workspace.lints.clippy]
+unwrap_used = "warn"   # tests opt out with #[allow]; production code returns errors instead
+
+[profile.release]
+opt-level = "s"   # small binary
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true
